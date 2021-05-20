@@ -44,10 +44,10 @@
             print_r($conn->error);
         }
     } elseif (isset($_GET['new'])) {
-        if ($_SESSION['role'] == 4) {
-            $new = true;
-        } else {
+        if ($_SESSION['role'] != 4) {
             echo "<script>window.location.href='./';</script>";
+        } else {
+            $new = true;
         }
     } else {
         echo "<script>window.location.href='./';</script>";
@@ -264,7 +264,7 @@
                 </select>
                 <select name="year" id="year" onchange="handleSelectChange(this)">
                     <option value="dis" disabled selected>
-                        Select a year
+                        Select year of production
                     </option>
                 </select>
                 <button type="submit">Go!</button>
@@ -287,16 +287,22 @@
                         endif;
                     ?>
                     <div class="brand__info">
-                        <div class="brandname__container">
-                            <?php
+                        <?php
                             if ($new) :
                         ?>
-                            <div>Brand Name:</div>
-                            <?php
+                        <h1>Adding a new brand</h1>
+                        <?php
                             endif;
                         ?>
+                        <div class="brandname__container">
+                            <?php
+                                if ($new) :
+                            ?>
+                            <div>Brand Name:</div>
+                            <?php
+                                endif;
+                            ?>
                             <h1 data-edit="brandname" data-input="input" data-type="text"><?=$brandname?></h1>
-
                         </div>
                         <form id="edit-form">
                             <div>

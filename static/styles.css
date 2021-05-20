@@ -568,6 +568,10 @@ span.btn {
   line-height: 1;
 }
 
+span.btn.save {
+  background-color: #1ee65b;
+}
+
 .profile {
   width: -webkit-max-content;
   width: -moz-max-content;

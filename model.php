@@ -50,12 +50,12 @@
             }
         }
     } elseif (isset($_GET['new'])) {
-        if ($_SESSION['role'] == 4) {
+        if ($_SESSION['role'] != 4 || !isset($_GET['brandid']) || !isset($_GET['brandname'])) {
+            echo "<script>window.history.go(-1);</script>";
+        } else {
             $new = true;
             $brandname = $_GET['brandname'];
             $modelheader = "Adding new model to $brandname";
-        } else {
-            echo "<script>window.history.go(-1);</script>";
         }
     } else {
         echo "<script>window.history.go(-1);</script>";
@@ -305,7 +305,7 @@
                 </select>
                 <select name="year" id="year" onchange="handleSelectChange(this)">
                     <option value="dis" disabled selected>
-                        Select a year
+                        Select year of production
                     </option>
                 </select>
                 <button type="submit">Go!</button>

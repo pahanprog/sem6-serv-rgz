@@ -49,7 +49,7 @@
                 </select>
                 <select name="year" id="year" onchange="handleSelectChange(this)">
                     <option value="dis" disabled selected>
-                        Select a year
+                        Select year of production
                     </option>
                 </select>
                 <button type="submit">Go!</button>
