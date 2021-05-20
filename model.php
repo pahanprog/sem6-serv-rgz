@@ -92,6 +92,9 @@
 </head>
 
 <body>
+    <?php
+        if ($_SESSION['role']  == 4 ):
+    ?>
     <script>
     let edit = false;
     let newbool = false;
@@ -273,8 +276,9 @@
     }
     </script>
     <?php
-            include("./components/header.php")
-        ?>
+        endif;
+        include("./components/header.php");
+    ?>
 
     <main class="model">
         <div class="search__container">
